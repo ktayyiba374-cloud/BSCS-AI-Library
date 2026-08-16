@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --bg-main: #05070D;
+  --bg-secondary: #080D1A;
+  --bg-sidebar: #070B14;
+  --bg-card: #0D1424;
+  --bg-elevated: #111B2E;
+  --navy-blue: #0B1F3A;
+  --primary-blue: #2563EB;
+  --neon-blue: #38BDF8;
+  --electric-cyan: #22D3EE;
+  --soft-blue-glow: rgba(56, 189, 248, 0.25);
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --border-neon: rgba(56, 189, 248, 0.12);
+}
+
+body {
+  background-color: #05070D;
+  color: #F8FAFC;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #2563EB;
+  selection-color: #ffffff;
+}
+
+/* Custom Cyber Glows & Borders */
+.cyber-card {
+  background: #0D1424;
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cyber-card:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.12), inset 0 0 15px rgba(34, 211, 238, 0.03);
+}
+
+.cyber-card-elevated {
+  background: #111B2E;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  box-shadow: 0 10px 30px -10px rgba(5, 7, 13, 0.8), 0 0 20px rgba(56, 189, 248, 0.08);
+}
+
+.neon-glow-btn {
+  background: linear-gradient(135deg, #2563EB 0%, #38BDF8 100%);
+  color: #FFFFFF;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+  transition: all 0.25s ease;
+}
+
+.neon-glow-btn:hover {
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.6), 0 0 10px rgba(34, 211, 238, 0.8);
+  transform: translateY(-1px);
+}
+
+.neon-glow-subtle {
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.18);
+}
+
+.neon-text-glow {
+  text-shadow: 0 0 15px rgba(56, 189, 248, 0.5), 0 0 30px rgba(34, 211, 238, 0.3);
+}
+
+.glass-panel {
+  background: rgba(13, 20, 36, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.14);
+}
+
+/* Futuristic animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.8deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.8deg);
+  }
+}
+
+@keyframes pulseNeon {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+.animate-float-card-1 {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-card-2 {
+  animation: floatReverse 6.5s ease-in-out infinite;
+}
+
+.animate-float-card-3 {
+  animation: float 7s ease-in-out infinite 1s;
+}
+
+.animate-float-card-4 {
+  animation: floatReverse 5.5s ease-in-out infinite 1.5s;
+}
+
+.animate-pulse-neon {
+  animation: pulseNeon 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+.cyber-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070B14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.5);
+}
+
+/* Print styling */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
